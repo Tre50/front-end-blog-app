@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+*,
+*::after,
+*::before {
+ margin: 0;
+ padding: 0;
+ box-sizing: inherit;
+
+}
+body {
+
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header{
+background-color: #333;
+
+}
+header > ul{
+display: flex;
+list-style-type: none;
+align-items: center;
+height: 2.5rem;
+
+}
+header > ul > li{
+/*float: left;*/
+height: 100%;
+
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header > li:hover{
+background-color: #111;
+
+}
+header > ul > li > a{
+  margin: 0 16px;
+  color: whitesmoke;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+
+}
+.cardContainer{
+display: flex;
+max-width: 1200px;
+flex-wrap: wrap;
+
+
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.singelCard{
+padding: 2em;
+background-color: red;
+border-color: aquamarine;
+margin: 2rem;
+max-width: 200px;
+max-height: 300px;
+border: 3px rgb(70, 70, 70);
+border-radius: 10px;
+
 }
 
-.App-link {
-  color: #61dafb;
+.singleCard > img {
+object-fit: cover;
+  width: 100px;
+  height: 200px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer{
+
+  width: 100%;
+  padding: 2rem;
+  height: 200px;
+  object-fit: cover;
+  font-size: 1.5rem;
 }
