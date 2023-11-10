@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react"
 
 export default function CardContainer() {
@@ -7,26 +6,26 @@ export default function CardContainer() {
     //as soon as component loads- fetch data
     useEffect(() => {
         fetch('http:// localhost:8080')
-            .then((res) => res.json())
-            .then((data) => setBlogPost(data))
-            .catch((err) => console.error(err))
+            .then(res => res.json())
+            .then(data => setBlogPost(data))
+            .catch(err => console.error(err))
     }, [])
 
     //put data in state variable
     // map data array from state variable
     // return JSX from the map - 
-    let formData = {}
+    //let formData = {}//
 
 
-    const handleFormSubmit = (evt) => {
-        evt.preventDefault()
-        const formData = {}
+    //const handleFormSubmit = (evt) => {
+      //  evt.preventDefault()
+        //const formData = {}
 
-        const handleInputFields = event => {
-            formData.title = event.target.title.value
-            console.log(event.target.name)
-
-            formData.content = event.target.title.value
+        const handleFormSubmit = evt => {
+            evt.preventData()
+            const formData ={}
+            formData.title = evt.target.title.value
+            formData.content = evt.target.title.value
 
 
             fetch('http;//localhost:8000', {
@@ -34,39 +33,39 @@ export default function CardContainer() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify / (formData),
+                body: JSON.stringify (formData),
             })
                 .then(res => res.json())
-                .then(cleanData => console.log(cleanData))
+                .then(cleanData => setBlogPost(cleanData))
                 .catch(err => console.log(err))
 
         }
         return (
             <>
 
-                <form action="" onSubmit={handleFormSubmit(evt)}>
+                <form action="" onSubmit={handleFormSubmit(e)}>
                     <label htmlFor="">
-                        <input type="text" name='title' id='' onChange={(typing) => handleInputFields(typing)} />
+                        <input type="text" name='title' id=''/>
                     </label>
                     <label htmlFor="">
-                        <input type="text" name='title' id='' onChange={() => { }} />
+                        <input type="text" name='content' id='' />
                     </label>
-                    <label htmlFor="">
-                        <input type="submit" name='title' id='' />
-                    </label>
+                    
+                    
+                    <button type='submit'>Add BlogPost</button>
 
 
                 </form>
 
 
-                <h2>This is Card Container</h2>
-                <div className="cardContainer">
+               
+                <div className="cardContainer" key={singlePost._id}>
                     {blogPost.map((singlePost, index) => {
-                        console.log('singlePost ->', singlePost)
                         return (
-                            <div className='singleCard'>
-                                <img src={`https://source.unsplash.com/random/${index}`} alt="" />
-                                <h2>{singlePost.title}</h2>
+                            <div className='singleCard' key={singlePost._id}>
+                                <img src={`https://source.unsplash.com/random/${index}`} alt='' srcSet=''/>
+                                <h2>title: {singlePost.title}</h2>
+                                <p>{singlePost.content}</p>
                             </div>
                         )
                     })}
@@ -74,4 +73,3 @@ export default function CardContainer() {
             </>
         )
     }
-}
