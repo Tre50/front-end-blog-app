@@ -43,7 +43,7 @@ export default function CardContainer() {
         return (
             <>
 
-                <form action="" onSubmit={handleFormSubmit(e)}>
+                <form action="" onSubmit={handleFormSubmit}>
                     <label htmlFor="">
                         <input type="text" name='title' id=''/>
                     </label>
@@ -59,7 +59,7 @@ export default function CardContainer() {
 
 
                
-                <div className="cardContainer" key={singlePost._id}>
+                <div className="cardContainer">
                     {blogPost.map((singlePost, index) => {
                         return (
                             <div className='singleCard' key={singlePost._id}>
